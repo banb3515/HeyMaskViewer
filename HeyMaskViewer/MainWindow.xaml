@@ -1,0 +1,114 @@
+﻿<Window x:Class="HeyMaskViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HeyMaskViewer"
+        mc:Ignorable="d"
+        Title="Hey! Mask! Viewer" 
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowState="Maximized"
+        Height="1080" 
+        Width="1920"
+        Background="#FF515151"
+        Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Margin="20,10,20,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Hey! Mask! Viewer" FontSize="28" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" />
+            <StackPanel HorizontalAlignment="Right" Grid.Column="1" Orientation="Horizontal">
+                <Button Background="Transparent" BorderBrush="Transparent" Foreground="Transparent" Padding="5" Click="Setting_Click" Margin="0,0,10,0">
+                    <ContentControl>
+                        <StackPanel Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left">
+                            <Image Source="/Resources/Setting.png" Margin="0,0,5,0" Width="30" Height="30" />
+                            <TextBlock Text="설정" VerticalAlignment="Center" FontSize="18" Foreground="White" FontWeight="Bold" />
+                        </StackPanel>
+                    </ContentControl>
+                </Button>
+
+                <Button Background="Transparent" BorderBrush="Transparent" Foreground="Transparent" Padding="5" Click="Exit_Click">
+                    <ContentControl>
+                        <StackPanel Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left">
+                            <Image Source="/Resources/Exit.png" Margin="0,0,5,0" Width="30" Height="30" />
+                            <TextBlock Text="종료" VerticalAlignment="Center" FontSize="18" Foreground="White" FontWeight="Bold" />
+                        </StackPanel>
+                    </ContentControl>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid Name="ViewGrid" Grid.Row="1" Margin="20,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border Name="View1" Grid.Column="0" Grid.Row="0" Tag="View1" BorderThickness="2" BorderBrush="White" CornerRadius="15" Margin="0,0,5,5" PreviewMouseLeftButtonDown="View_PreviewMouseLeftButtonDown">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Name="View1Title" Margin="0,5" TextAlignment="Center" FontSize="24" Foreground="White" FontWeight="Bold" />
+                    <Image Grid.Row="1" Name="View1Frame" Margin="5" />
+                </Grid>
+            </Border>
+
+            <Border Name="View2" Grid.Column="1" Grid.Row="0" Tag="View2" BorderThickness="2" BorderBrush="White" CornerRadius="15" Margin="5,0,0,5" PreviewMouseLeftButtonDown="View_PreviewMouseLeftButtonDown">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Name="View2Title" Margin="0,5" TextAlignment="Center" FontSize="24" Foreground="White" FontWeight="Bold" />
+                    <Image Grid.Row="1" Name="View2Frame" Margin="5" />
+                </Grid>
+            </Border>
+
+            <Border Name="View3" Grid.Column="0" Grid.Row="1" Tag="View3" BorderThickness="2" BorderBrush="White" CornerRadius="15" Margin="0,5,5,0" PreviewMouseLeftButtonDown="View_PreviewMouseLeftButtonDown">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Name="View3Title" Margin="0,5" TextAlignment="Center" FontSize="24" Foreground="White" FontWeight="Bold" />
+                    <Image Grid.Row="1" Name="View3Frame" Margin="5" />
+                </Grid>
+            </Border>
+
+            <Border Name="View4" Grid.Column="1" Grid.Row="1" Tag="View4" BorderThickness="2" BorderBrush="White" CornerRadius="15" Margin="5,5,0,0" PreviewMouseLeftButtonDown="View_PreviewMouseLeftButtonDown">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Name="View4Title" Margin="0,5" TextAlignment="Center" FontSize="24" Foreground="White"  FontWeight="Bold" />
+                    <Image Grid.Row="1" Name="View4Frame" Margin="5" />
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Name="PopupGrid" Grid.RowSpan="2" Visibility="Collapsed">
+            <Grid Background="Black" Opacity="0.5" />
+        </Grid>
+    </Grid>
+</Window>
